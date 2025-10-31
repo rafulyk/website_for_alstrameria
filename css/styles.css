@@ -11,10 +11,20 @@ html {
 font-family: 'Montserrat', sans-serif;
 }
 
+body {
+    background-color: var(--rich-black);
+    color: white;
+}
+
+.orange-text {
+    color: var(--light-orange);
+    font-size: 1.2rem;
+}
+
 /* Оформляю фиксированную шапку */
 
 header {
-    background: radial-gradient(var(--aquamarine), var(--prussian-blue) 55%);
+    background: radial-gradient(var(--aquamarine), var(--rich-black) 55%);
     background-size: 200% 100%;
     height: var(--header-height);
     width: 100%;
@@ -47,82 +57,69 @@ border-radius: 10px;
 padding: 0 10px;
 }
 
-/* Строю карусель "О компании" для мобильных устройств с сенсорным дисплеем */
+/* Строю анимацию из 6 фактов о компании (FlexBox + animation) */
 
-.carousel {
-margin-top: 1rem;
+.slides-group {
+   margin-top: 2rem;
    display: flex;
-   gap: 1rem;
-}
-
-.slide {
-   background: linear-gradient(15deg, var(--light-orange), white 25% 75%, var(--light-orange));
-   border-radius: 0.2rem;
-   text-align: justify;
-   padding: 1rem;
-   color: var(--rich-black);
-   font-weight: 500;
-}
-
-.carousel-spacer {
-    display: none;
-}
-
-@media (max-width: 768px) {
-
-.carousel {
    overflow-x: auto;
-   scroll-snap-type: x mandatory;
-   scroll-behavior: smooth;
-   -webkit-overflow-scrolling: touch;
 }
 
-.carousel::-webkit-scrollbar {
+.slides-group::-webkit-scrollbar {
     display: none;
 }
 
+.slide, .slide-spacer { 
+    flex: 0 0 40%;
+    }
+
 .slide {
-    flex: 0 0 80%;
-    scroll-snap-align: center;
-    animation: carousel-start 2s;
+   background: linear-gradient(-3deg, var(--aquamarine), var(--rich-black) 15% 85%, var(--aquamarine));
+   border-radius: 0.5rem;
+   text-align: justify;
+   font-weight: 500;
+   line-height: 1.3rem;
+   padding: 1.5%;
+   margin: 0 3%;
+   animation: slides-animation 36s cubic-bezier(0.1, 0.9, 0.9, 0.1) infinite; 
 }
 
-@keyframes carousel-start {
-    0% {
-        transform: translateX(-500px);
-    }
-   
-    50% {
-        transform: translateX(150px);
-    }
+    /* Анимация для бегущей строки из слайдов + динамичный фон */
 
-    100% {
-        transform: translateX(0px);
-    }
-}
-
-.carousel-spacer {
-    display: block;
-    width: 200px;
-    height: 1px;
-}
-}
-
-
-/* Для ПК отображу эту карусель простым FlexBox */
-
-@media (min-width: 768px) {
-    .carousel {
-    flex-wrap: wrap;
-    justify-content: center;
-    }
-    .slide {
-        width: 29%;
-        margin: 0 2rem;
-        transition: 1s;
-    }
-    .slide:hover {
-        transform: scale(1.3);
-        box-shadow: 0 0 5px var(--prussian-blue);
-    }
-    }
+@keyframes slides-animation {
+        0% {
+            transform: translateX(0);
+            background-size: 200% 100%;
+            background-position: 100% 0;
+        }
+        16.7% {
+            transform: translateX(-49vw);
+            background-size: 100% 100%;
+            background-position: 0 0;
+        }
+        33.4% {
+            transform: translateX(-98vw);
+            background-size: 200% 100%;
+            background-position: 100% 0;
+        }
+        50% {
+            transform: translateX(-147vw);
+            background-size: 100% 100%;
+            background-position: 0 0;
+        }
+        66.7% {
+            transform: translateX(-196vw);
+            background-size: 200% 100%;
+            background-position: 100% 0;
+        }
+        83.4% {
+            transform: translateX(-245vw);
+            background-size: 100% 100%;
+            background-position: 0 0;
+        }
+        100% {
+            transform: translateX(-294vw);
+            background-size: 200% 100%;
+            background-position: 100% 0;
+        }
+     }
