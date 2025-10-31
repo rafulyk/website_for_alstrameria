@@ -79,7 +79,7 @@ header img:active {
 .slide {
    background: linear-gradient(-9deg, var(--rich-black) 0% 90%, var(--aquamarine));
    border-radius: 0.2rem;
-   animation: slides-animation 36s cubic-bezier(0.01, 1.45, 0.8, 0.1) infinite; 
+   animation: slides-animation 36s cubic-bezier(0.01, 1.45, 0.8, 0.1) infinite reverse; 
 }
 
 .slide p {
@@ -94,6 +94,9 @@ header img:active {
 @media (min-width: 640px) {
     .slide, .slide-spacer { 
         flex: 0 0 40%;
+    }
+    .slide {
+   background: linear-gradient(-9deg, var(--rich-black) 0% 80%, var(--aquamarine));
     }
 }
     
@@ -163,7 +166,7 @@ header img:active {
 .type {
     width: 85%;
     padding: 0 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     border-radius: 3px;
     transition: 1s;
     animation: type-shadow 2s linear infinite;
@@ -187,14 +190,15 @@ header img:active {
     }
 }
  
-
             /* Адаптирую раздел с видами работ для ПК */
 
 @media (min-width: 640px) {
     .type {
         width: 60%;
+        animation: none;
     }
     .type:hover {
-        transform: scale(1.2); 
+        transform: scale(1.2);
+        animation: type-shadow 2s linear infinite;
     }
 }
