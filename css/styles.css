@@ -1,14 +1,14 @@
 :root {
---aquamarine: #a9fbd7ff;
---rich-black: #00171fff;
---prussian-blue: #003459ff;
---argentinian-blue: #77b6eaff;
---light-orange: #fcd0a1ff;
---header-height: 80px;
+    --aquamarine: #a9fbd7ff;
+    --rich-black: #00171fff;
+    --prussian-blue: #003459ff;
+    --argentinian-blue: #77b6eaff;
+    --light-orange: #fcd0a1ff;
+    --header-height: 80px;
 }
 
 html {
-font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
     font-size: 1.2rem;
 }
 
-/* Оформляю фиксированную шапку */
+            /* Оформляю фиксированную шапку */
 
 header {
     background: radial-gradient(var(--aquamarine), var(--rich-black) 55%);
@@ -35,6 +35,7 @@ header {
     justify-content: center;
     align-items: center;
     animation: logo-animation 6s ease-in-out infinite reverse;
+    z-index: 1;
 }
 
 body {
@@ -52,74 +53,148 @@ body {
 }
 
 header img:active {
-border: 3px inset var(--aquamarine);
-border-radius: 10px;
-padding: 0 10px;
+    border: 3px inset var(--aquamarine);
+    border-radius: 10px;
+    padding: 0 10px;
 }
 
-/* Строю анимацию из 6 фактов о компании (FlexBox + animation) */
+            /* Строю анимацию из 6 фактов о компании (FlexBox + animation) */
 
-.slides-group {
+#advantage-slides {
    margin-top: 2rem;
    display: flex;
    overflow-x: auto;
+   justify-content: space-between;
+   gap: 8rem;
 }
 
-.slides-group::-webkit-scrollbar {
+#advantage-slides::-webkit-scrollbar {
     display: none;
 }
 
 .slide, .slide-spacer { 
-    flex: 0 0 40%;
+    flex: 0 0 85%;
     }
 
 .slide {
-   background: linear-gradient(-3deg, var(--aquamarine), var(--rich-black) 15% 85%, var(--aquamarine));
-   border-radius: 0.5rem;
-   text-align: justify;
-   font-weight: 500;
-   line-height: 1.3rem;
-   padding: 1.5%;
-   margin: 0 3%;
-   animation: slides-animation 36s cubic-bezier(0.1, 0.9, 0.9, 0.1) infinite; 
+   background: linear-gradient(-9deg, var(--rich-black) 0% 90%, var(--aquamarine));
+   border-radius: 0.2rem;
+   animation: slides-animation 36s cubic-bezier(0.01, 1.45, 0.8, 0.1) infinite; 
 }
 
-    /* Анимация для бегущей строки из слайдов + динамичный фон */
+.slide p {
+    text-align: justify;
+    font-weight: 500;
+    line-height: 1.3rem;
+    padding: 0 1rem;
+}
+
+            /* Адаптируем анимированные слайды для ПК */
+
+@media (min-width: 640px) {
+    .slide, .slide-spacer { 
+        flex: 0 0 40%;
+    }
+}
+    
+
+            /* Анимация для бегущей строки из слайдов + динамичный фон */
 
 @keyframes slides-animation {
-        0% {
-            transform: translateX(0);
-            background-size: 200% 100%;
-            background-position: 100% 0;
-        }
-        16.7% {
-            transform: translateX(-49vw);
-            background-size: 100% 100%;
-            background-position: 0 0;
-        }
-        33.4% {
-            transform: translateX(-98vw);
-            background-size: 200% 100%;
-            background-position: 100% 0;
-        }
-        50% {
-            transform: translateX(-147vw);
-            background-size: 100% 100%;
-            background-position: 0 0;
-        }
-        66.7% {
-            transform: translateX(-196vw);
-            background-size: 200% 100%;
-            background-position: 100% 0;
-        }
-        83.4% {
-            transform: translateX(-245vw);
-            background-size: 100% 100%;
-            background-position: 0 0;
-        }
-        100% {
-            transform: translateX(-294vw);
-            background-size: 200% 100%;
-            background-position: 100% 0;
-        }
-     }
+    0% {
+        transform: translateX(-8rem); /* 8rem = flexbox gap */
+        background-size: 100% 100%;
+    }
+    16.7% {
+        transform: translateX(calc(-100% - 16rem)); /* calc = slide width - flexbox gap */
+        background-size: 200% 200%;
+    }
+    33.4% {
+        transform: translateX(calc(-200% - 24rem));
+        background-size: 100% 100%;
+    }
+    50% {
+        transform: translateX(calc(-300% - 32rem));
+        background-size: 200% 200%;
+    }
+    66.7% {
+        transform: translateX(calc(-400% - 40rem));
+        background-size: 100% 100%;
+    }
+    83.4% {
+        transform: translateX(calc(-500% - 48rem));
+        background-size: 200% 200%;
+    }
+    100% {
+        transform: translateX(calc(-600% - 56rem));
+        background-size: 100% 100%;
+    }
+}
+
+            /* Оформляю визуал раздела с видами предлагаемых работ */
+
+#types-of-work {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+#types-of-work h2 {
+    text-align: center;
+}
+
+.electricity h2 {
+    color: var(--light-orange);
+}
+
+.ventilation h2 {
+    color: var(--aquamarine);
+}
+
+.water-supply h2 {
+    color: var(--argentinian-blue);
+}
+
+#types-of-work p {
+    text-align: justify;
+}
+
+.type {
+    width: 85%;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    border-radius: 3px;
+    transition: 1s;
+    animation: type-shadow 2s linear infinite;
+}
+
+@keyframes type-shadow {
+    0% {
+        box-shadow: 3px 3px 5px var(--aquamarine);
+    }
+    25% {
+        box-shadow: -3px 3px 5px var(--aquamarine);
+    }
+    50% {
+        box-shadow: -3px -3px 5px var(--aquamarine);
+    }
+    75% {
+        box-shadow: 3px -3px 5px var(--aquamarine);
+    }
+    100% {
+        box-shadow: 3px 3px 5px var(--aquamarine);
+    }
+}
+ 
+
+            /* Адаптирую раздел с видами работ для ПК */
+
+@media (min-width: 640px) {
+    .type {
+        width: 60%;
+    }
+    .type:hover {
+        transform: scale(1.2); 
+    }
+}
