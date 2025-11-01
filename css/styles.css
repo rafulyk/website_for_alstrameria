@@ -1,7 +1,7 @@
 :root {
     --aquamarine: #a9fbd7ff;
     --rich-black: #00171fff;
-    --prussian-blue: #003459ff;
+    --prussian-blue: #89909F;
     --argentinian-blue: #77b6eaff;
     --light-orange: #fcd0a1ff;
     --header-height: 80px;
@@ -78,7 +78,7 @@ header img:active {
 
 .slide {
    background: linear-gradient(-9deg, var(--rich-black) 0% 90%, var(--aquamarine));
-   border-radius: 0.2rem;
+   border-radius: 0.5rem;
    animation: slides-animation 36s cubic-bezier(0.01, 1.45, 0.8, 0.1) infinite reverse; 
 }
 
@@ -134,17 +134,44 @@ header img:active {
     }
 }
 
-            /* Оформляю визуал раздела с видами предлагаемых работ */
+            /* Оформляю раздел с видами предлагаемых работ из трёх "аккардионов" */
 
 #types-of-work {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 2rem 0;
+    margin: 1rem 0;
+}
+
+.type {
+    width: 85%;
+    padding: 0;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    transition: 1s;
+    animation: type-shadow 2s linear infinite;
+}
+
+.accordion-toggle {
+    display: none;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in;
+    padding: 0 1rem;
+}
+
+.accordion-toggle:checked ~ .accordion-content {
+    max-height: 25rem;
+    padding: 0 1rem;
 }
 
 #types-of-work h2 {
     text-align: center;
+    font-size: 1.1rem;
+    padding: 0 17vw;
 }
 
 .electricity h2 {
@@ -152,7 +179,7 @@ header img:active {
 }
 
 .ventilation h2 {
-    color: var(--aquamarine);
+    color: var(--prussian-blue);
 }
 
 .water-supply h2 {
@@ -163,14 +190,6 @@ header img:active {
     text-align: justify;
 }
 
-.type {
-    width: 85%;
-    padding: 0 1rem;
-    margin-bottom: 3rem;
-    border-radius: 3px;
-    transition: 1s;
-    animation: type-shadow 2s linear infinite;
-}
 
 @keyframes type-shadow {
     0% {
@@ -190,15 +209,84 @@ header img:active {
     }
 }
  
-            /* Адаптирую раздел с видами работ для ПК */
+            /* Адаптирую раздел для ПК + :hover individual box-shadow-animation */
 
 @media (min-width: 640px) {
+    #types-of-work {
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
     .type {
-        width: 60%;
-        animation: none;
+        width: 25%;
     }
     .type:hover {
-        transform: scale(1.2);
-        animation: type-shadow 2s linear infinite;
+        transform: scale(1.1);
+        animation: none;
+    }
+    #types-of-work h2 {
+        font-size: clamp(0.8rem, 1.7vw, 1.4rem);
+        padding: 0;
+        cursor: pointer;
+    }
+    .electricity:hover {
+        animation: type-shadow-orange 2s linear infinite;
+    }
+    .ventilation:hover {
+        animation: type-shadow-blue 2s linear infinite;
+    }
+    .water-supply:hover {
+        animation: type-shadow-aqua 2s linear infinite;
+    }
+    @keyframes type-shadow-orange {
+    0% {
+        box-shadow: 3px 3px 5px var(--light-orange);
+        }
+    25% {
+        box-shadow: -3px 3px 5px var(--light-orange);
+        }
+    50% {
+        box-shadow: -3px -3px 5px var(--light-orange);
+        }
+    75% {
+        box-shadow: 3px -3px 5px var(--light-orange);
+        }
+    100% {
+        box-shadow: 3px 3px 5px var(--light-orange);
+        }
+    }
+    @keyframes type-shadow-blue {
+    0% {
+        box-shadow: 3px 3px 5px var(--prussian-blue);
+        }
+    25% {
+        box-shadow: -3px 3px 5px var(--prussian-blue);
+        }
+    50% {
+        box-shadow: -3px -3px 5px var(--prussian-blue);
+        }
+    75% {
+        box-shadow: 3px -3px 5px var(--prussian-blue);
+        }
+    100% {
+        box-shadow: 3px 3px 5px var(--prussian-blue);
+        }
+    }
+    @keyframes type-shadow-aqua {
+    0% {
+        box-shadow: 3px 3px 5px var(--argentinian-blue);
+        }
+    25% {
+        box-shadow: -3px 3px 5px var(--argentinian-blue);
+        }
+    50% {
+        box-shadow: -3px -3px 5px var(--argentinian-blue);
+        }
+    75% {
+        box-shadow: 3px -3px 5px var(--argentinian-blue);
+        }
+    100% {
+        box-shadow: 3px 3px 5px var(--argentinian-blue);
+        }
     }
 }
