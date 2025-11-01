@@ -1,9 +1,11 @@
 :root {
-    --aquamarine: #a9fbd7ff;
-    --rich-black: #00171fff;
-    --prussian-blue: #89909F;
+    --aquamarine: #99edccff;
+    --delft-blue: #23395B;
+    --desert-sand: #e4bb97ff;
     --argentinian-blue: #77b6eaff;
-    --light-orange: #fcd0a1ff;
+    --redwood: #a63d40ff;
+    --midnight-blue: #18206fff;
+    --jordy-blue: #9ac4f8ff;
     --header-height: 80px;
 }
 
@@ -12,19 +14,22 @@ html {
 }
 
 body {
-    background-color: var(--rich-black);
+    background-color: var(--delft-blue);
     color: white;
 }
 
-.orange-text {
-    color: var(--light-orange);
-    font-size: 1.2rem;
+.imp-text {
+    color: var(--desert-sand);
+    font-weight: 600;
 }
 
+h1 {
+    font-size: 1rem;
+}
             /* Оформляю фиксированную шапку */
 
 header {
-    background: radial-gradient(var(--aquamarine), var(--rich-black) 55%);
+    background: radial-gradient(var(--aquamarine), var(--delft-blue) 55%);
     background-size: 200% 100%;
     height: var(--header-height);
     width: 100%;
@@ -65,7 +70,7 @@ header img:active {
    display: flex;
    overflow-x: auto;
    justify-content: space-between;
-   gap: 9rem;
+   gap: 8rem;
 }
 
 #advantage-slides::-webkit-scrollbar {
@@ -77,7 +82,7 @@ header img:active {
     }
 
 .slide {
-   background: linear-gradient(-9deg, var(--rich-black) 0% 90%, var(--aquamarine));
+   background: linear-gradient(-9deg, var(--delft-blue) 0% 90%, var(--aquamarine));
    border-radius: 0.5rem;
    animation: slides-animation 36s cubic-bezier(0.01, 1.45, 0.8, 0.1) infinite reverse; 
 }
@@ -91,15 +96,11 @@ header img:active {
 
             /* Адаптируем анимированные слайды для ПК */
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
     .slide, .slide-spacer { 
         flex: 0 0 40%;
     }
-    .slide {
-   background: linear-gradient(-9deg, var(--rich-black) 0% 80%, var(--aquamarine));
-    }
 }
-    
 
             /* Анимация для бегущей строки из слайдов + динамичный фон */
 
@@ -134,7 +135,7 @@ header img:active {
     }
 }
 
-            /* Оформляю раздел с видами предлагаемых работ из трёх "аккардионов" */
+            /* Оформляю раздел с видами предлагаемых работ из шести "аккардионов" */
 
 #types-of-work {
     display: flex;
@@ -145,27 +146,26 @@ header img:active {
 
 .type {
     width: 85%;
+    position: ;
+}
+
+.type, .more-info-button {
+    animation: type-shadow 2s linear infinite;
+    transition: 1s;
     padding: 0;
     margin-bottom: 1rem;
     border-radius: 1rem;
-    transition: 1s;
-    animation: type-shadow 2s linear infinite;
 }
 
-.accordion-toggle {
-    display: none;
+.more-info-button {
+    margin: 0 auto 1.2rem;
+    padding: 0.5rem 1rem;
 }
 
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-in;
-    padding: 0 1rem;
-}
-
-.accordion-toggle:checked ~ .accordion-content {
-    max-height: 25rem;
-    padding: 0 1rem;
+.more-info-button a, #types-of-work h2 {
+    text-decoration: none;
+    font-weight: 300;
+    color: var(--desert-sand);
 }
 
 #types-of-work h2 {
@@ -174,22 +174,63 @@ header img:active {
     padding: 0 17vw;
 }
 
-.electricity h2 {
-    color: var(--light-orange);
-}
-
-.ventilation h2 {
-    color: var(--prussian-blue);
-}
-
-.water-supply h2 {
-    color: var(--argentinian-blue);
-}
-
 #types-of-work p {
     text-align: justify;
 }
 
+            /* Настраиваю hover and active для раздела с видами работ */
+
+.electricity:hover, .electricity .more-info-button:hover {
+    animation: type-shadow-orange 2s linear infinite;
+}
+.electricity:active, .electricity .more-info-button:active {
+    animation: type-shadow-orange 0.1s linear infinite;
+}
+
+.ventilation:hover, .ventilation .more-info-button:hover {
+    animation: type-shadow-blue 2s linear infinite;
+}
+.ventilation:active, .ventilation .more-info-button:active {
+    animation: type-shadow-blue 0.1s linear infinite;
+}
+
+.water:hover, .water .more-info-button:hover {
+    animation: type-shadow-aqua 2s linear infinite;
+}
+.water:active, .water .more-info-button:active {
+    animation: type-shadow-aqua 0.1s linear infinite;
+}
+
+#types-of-work h2:hover, .more-info-button a:hover {
+    color: white;
+}
+
+#types-of-work h2:hover, .more-info-button a:hover {
+    color: white;
+}
+
+            /* Настраиваю логику работы "аккардиона" */
+
+.accordion-toggle {
+    display: none;
+}
+
+.accordion-content {
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in;
+    padding: 0 1rem;
+}
+
+.accordion-toggle:checked ~ .accordion-content {
+    max-height: 26rem;
+    padding: 0 1rem;
+    z-index: 1;
+}
+
+            /* 4 individual анимации box-shadow для разных состояний types*/
 
 @keyframes type-shadow {
     0% {
@@ -208,85 +249,77 @@ header img:active {
         box-shadow: 3px 3px 5px var(--aquamarine);
     }
 }
- 
+
+@keyframes type-shadow-orange {
+    0% {
+        box-shadow: 3px 3px 5px orangered;
+        }
+    25% {
+        box-shadow: -3px 3px 5px orangered;
+        }
+    50% {
+        box-shadow: -3px -3px 5px orangered;
+        }
+    75% {
+        box-shadow: 3px -3px 5px orangered;
+        }
+    100% {
+        box-shadow: 3px 3px 5px orangered;
+        }
+    }
+@keyframes type-shadow-blue {
+    0% {
+        box-shadow: 3px 3px 5px gray;
+        }
+    25% {
+        box-shadow: -3px 3px 5px gray;
+        }
+    50% {
+        box-shadow: -3px -3px 5px gray;
+        }
+    75% {
+        box-shadow: 3px -3px 5px gray;
+        }
+    100% {
+        box-shadow: 3px 3px 5px gray;
+        }
+    }
+@keyframes type-shadow-aqua {
+    0% {
+        box-shadow: 3px 3px 5px aqua;
+        }
+    25% {
+        box-shadow: -3px 3px 5px aqua;
+        }
+    50% {
+        box-shadow: -3px -3px 5px aqua;
+        }
+    75% {
+        box-shadow: 3px -3px 5px aqua;
+        }
+    100% {
+        box-shadow: 3px 3px 5px aqua;
+        }
+    }
+
             /* Адаптирую раздел для ПК + :hover individual box-shadow-animation */
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
     #types-of-work {
         flex-direction: row;
         justify-content: space-evenly;
         align-items: flex-start;
+        flex-wrap: wrap;
     }
     .type {
-        width: 25%;
+        width: 24rem;
     }
     .type:hover {
         transform: scale(1.1);
-        animation: none;
     }
     #types-of-work h2 {
-        font-size: clamp(0.8rem, 1.7vw, 1.4rem);
+        font-size: clamp(0.9rem, 1.3vw, 1rem);
         padding: 0;
         cursor: pointer;
-    }
-    .electricity:hover {
-        animation: type-shadow-orange 2s linear infinite;
-    }
-    .ventilation:hover {
-        animation: type-shadow-blue 2s linear infinite;
-    }
-    .water-supply:hover {
-        animation: type-shadow-aqua 2s linear infinite;
-    }
-    @keyframes type-shadow-orange {
-    0% {
-        box-shadow: 3px 3px 5px var(--light-orange);
-        }
-    25% {
-        box-shadow: -3px 3px 5px var(--light-orange);
-        }
-    50% {
-        box-shadow: -3px -3px 5px var(--light-orange);
-        }
-    75% {
-        box-shadow: 3px -3px 5px var(--light-orange);
-        }
-    100% {
-        box-shadow: 3px 3px 5px var(--light-orange);
-        }
-    }
-    @keyframes type-shadow-blue {
-    0% {
-        box-shadow: 3px 3px 5px var(--prussian-blue);
-        }
-    25% {
-        box-shadow: -3px 3px 5px var(--prussian-blue);
-        }
-    50% {
-        box-shadow: -3px -3px 5px var(--prussian-blue);
-        }
-    75% {
-        box-shadow: 3px -3px 5px var(--prussian-blue);
-        }
-    100% {
-        box-shadow: 3px 3px 5px var(--prussian-blue);
-        }
-    }
-    @keyframes type-shadow-aqua {
-    0% {
-        box-shadow: 3px 3px 5px var(--argentinian-blue);
-        }
-    25% {
-        box-shadow: -3px 3px 5px var(--argentinian-blue);
-        }
-    50% {
-        box-shadow: -3px -3px 5px var(--argentinian-blue);
-        }
-    75% {
-        box-shadow: 3px -3px 5px var(--argentinian-blue);
-        }
-    100% {
-        box-shadow: 3px 3px 5px var(--argentinian-blue);
-        }
     }
 }
