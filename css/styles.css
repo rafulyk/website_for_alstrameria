@@ -1,11 +1,10 @@
 :root {
-    --aquamarine: #99edccff;
-    --delft-blue: #23395B;
-    --desert-sand: #e4bb97ff;
-    --argentinian-blue: #77b6eaff;
-    --redwood: #a63d40ff;
-    --midnight-blue: #18206fff;
+    --federal-blue: #2A2259;
     --jordy-blue: #9ac4f8ff;
+    --desert-sand: #F3C98B;
+    --space-cadet: #202C59;
+    --redwood: #a63d40ff;
+    --aquamarine: #99edccff;
     --header-height: 80px;
 }
 
@@ -14,8 +13,9 @@ html {
 }
 
 body {
-    background-color: var(--delft-blue);
+    background-color: var(--federal-blue);
     color: white;
+    padding-top: var(--header-height);
 }
 
 .imp-text {
@@ -23,13 +23,14 @@ body {
     font-weight: 600;
 }
 
-h1 {
-    font-size: 1rem;
+h1, h2, h3, h4 {
+    font-weight: 300;
+    text-shadow: 0 0 7px var(--redwood);
 }
             /* Оформляю фиксированную шапку */
 
 header {
-    background: radial-gradient(var(--aquamarine), var(--delft-blue) 55%);
+    background: radial-gradient(var(--jordy-blue), var(--federal-blue) 55%);
     background-size: 200% 100%;
     height: var(--header-height);
     width: 100%;
@@ -39,14 +40,9 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    animation: logo-animation 6s ease-in-out infinite reverse;
+    animation: logo-animation 6s linear infinite reverse;
     z-index: 1;
 }
-
-body {
-    padding-top: var(--header-height);
-}
-
 
 @keyframes logo-animation {
     0% {
@@ -58,7 +54,7 @@ body {
 }
 
 header img:active {
-    border: 3px inset var(--aquamarine);
+    border: 3px inset var(--jordy-blue);
     border-radius: 10px;
     padding: 0 10px;
 }
@@ -68,7 +64,7 @@ header img:active {
 #advantage-slides {
    margin-top: 2rem;
    display: flex;
-   overflow-x: auto;
+   overflow-x: hidden;
    justify-content: space-between;
    gap: 8rem;
 }
@@ -82,8 +78,8 @@ header img:active {
     }
 
 .slide {
-   background: linear-gradient(-9deg, var(--delft-blue) 0% 90%, var(--aquamarine));
-   border-radius: 0.5rem;
+   background: linear-gradient(var(--jordy-blue), var(--federal-blue) 5% 100%);
+   border-radius: 0.2rem;
    animation: slides-animation 36s cubic-bezier(0.01, 1.45, 0.8, 0.1) infinite reverse; 
 }
 
@@ -94,9 +90,9 @@ header img:active {
     padding: 0 1rem;
 }
 
-            /* Адаптируем анимированные слайды для ПК */
+            /* Адаптирую анимированные слайды для ПК */
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
     .slide, .slide-spacer { 
         flex: 0 0 40%;
     }
@@ -111,7 +107,7 @@ header img:active {
     }
     16.7% {
         transform: translateX(calc(-100% - 16rem)); /* calc = slide width - flexbox gap */
-        background-size: 200% 200%;
+        background-size: 100% 300%;
     }
     33.4% {
         transform: translateX(calc(-200% - 24rem));
@@ -119,7 +115,7 @@ header img:active {
     }
     50% {
         transform: translateX(calc(-300% - 32rem));
-        background-size: 200% 200%;
+        background-size: 100% 300%;
     }
     66.7% {
         transform: translateX(calc(-400% - 40rem));
@@ -127,7 +123,7 @@ header img:active {
     }
     83.4% {
         transform: translateX(calc(-500% - 48rem));
-        background-size: 200% 200%;
+        background-size: 100% 300%;
     }
     100% {
         transform: translateX(calc(-600% - 56rem));
@@ -135,7 +131,7 @@ header img:active {
     }
 }
 
-            /* Оформляю раздел с видами предлагаемых работ из шести "аккардионов" */
+            /* Оформляю раздел с видами предлагаемых работ из шести "аккордеонов" */
 
 #types-of-work {
     display: flex;
@@ -146,165 +142,80 @@ header img:active {
 
 .type {
     width: 85%;
-    position: ;
+    display: grid;
+    grid-template-rows: auto 0fr;
+    transition: grid-template-rows 0.5s ease;
+    text-align: center;
 }
 
 .type, .more-info-button {
-    animation: type-shadow 2s linear infinite;
-    transition: 1s;
-    padding: 0;
+    animation: type-shadow 0.7s ease-in-out infinite alternate;
     margin-bottom: 1rem;
-    border-radius: 1rem;
+    border-radius: 0.3rem;
 }
 
-.more-info-button {
-    margin: 0 auto 1.2rem;
-    padding: 0.5rem 1rem;
-}
-
-.more-info-button a, #types-of-work h2 {
-    text-decoration: none;
-    font-weight: 300;
-    color: var(--desert-sand);
-}
-
-#types-of-work h2 {
-    text-align: center;
+.type h2 {
     font-size: 1.1rem;
-    padding: 0 17vw;
+    padding: 0 2rem;
 }
 
-#types-of-work p {
+.type p {
     text-align: justify;
 }
 
-            /* Настраиваю hover and active для раздела с видами работ */
-
-.electricity:hover, .electricity .more-info-button:hover {
-    animation: type-shadow-orange 2s linear infinite;
-}
-.electricity:active, .electricity .more-info-button:active {
-    animation: type-shadow-orange 0.1s linear infinite;
-}
-
-.ventilation:hover, .ventilation .more-info-button:hover {
-    animation: type-shadow-blue 2s linear infinite;
-}
-.ventilation:active, .ventilation .more-info-button:active {
-    animation: type-shadow-blue 0.1s linear infinite;
-}
-
-.water:hover, .water .more-info-button:hover {
-    animation: type-shadow-aqua 2s linear infinite;
-}
-.water:active, .water .more-info-button:active {
-    animation: type-shadow-aqua 0.1s linear infinite;
-}
-
-#types-of-work h2:hover, .more-info-button a:hover {
+.more-info-button a {
+    text-decoration: none;
     color: white;
 }
 
-#types-of-work h2:hover, .more-info-button a:hover {
-    color: white;
+.more-info-button {
+    padding: 0.5rem 0;
+    width: 50%;
+    margin: 0 auto 1rem;
+    transition: 0.6s;
 }
 
-            /* Настраиваю логику работы "аккардиона" */
+.type:active, .more-info-button:active {
+    color: var(--federal-blue);
+    background-color: var(--jordy-blue);
+    transform: scale(0.8);
+}
+
+.more-info-button a:active {
+    color: var(--federal-blue);
+}
+
+@keyframes type-shadow {
+    0% {
+        box-shadow: 0 0 8px var(--jordy-blue);
+    }
+    100% {
+        box-shadow: none;
+    }
+}
+
+            /* Настраиваю логику работы "аккордеона" */
 
 .accordion-toggle {
     display: none;
 }
 
 .accordion-content {
-    display: flex;
-    flex-direction: column;
-    max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-in;
+    min-height: 0;
+}
+
+.accordion-toggle:checked + .type {
+    grid-template-rows: auto 1fr;
     padding: 0 1rem;
+    background-color: var(--space-cadet) !important;
+    color: white !important;
 }
 
-.accordion-toggle:checked ~ .accordion-content {
-    max-height: 26rem;
-    padding: 0 1rem;
-    z-index: 1;
-}
+            /* Адаптирую раздел с видами работ для ПК */
 
-            /* 4 individual анимации box-shadow для разных состояний types*/
-
-@keyframes type-shadow {
-    0% {
-        box-shadow: 3px 3px 5px var(--aquamarine);
-    }
-    25% {
-        box-shadow: -3px 3px 5px var(--aquamarine);
-    }
-    50% {
-        box-shadow: -3px -3px 5px var(--aquamarine);
-    }
-    75% {
-        box-shadow: 3px -3px 5px var(--aquamarine);
-    }
-    100% {
-        box-shadow: 3px 3px 5px var(--aquamarine);
-    }
-}
-
-@keyframes type-shadow-orange {
-    0% {
-        box-shadow: 3px 3px 5px orangered;
-        }
-    25% {
-        box-shadow: -3px 3px 5px orangered;
-        }
-    50% {
-        box-shadow: -3px -3px 5px orangered;
-        }
-    75% {
-        box-shadow: 3px -3px 5px orangered;
-        }
-    100% {
-        box-shadow: 3px 3px 5px orangered;
-        }
-    }
-@keyframes type-shadow-blue {
-    0% {
-        box-shadow: 3px 3px 5px gray;
-        }
-    25% {
-        box-shadow: -3px 3px 5px gray;
-        }
-    50% {
-        box-shadow: -3px -3px 5px gray;
-        }
-    75% {
-        box-shadow: 3px -3px 5px gray;
-        }
-    100% {
-        box-shadow: 3px 3px 5px gray;
-        }
-    }
-@keyframes type-shadow-aqua {
-    0% {
-        box-shadow: 3px 3px 5px aqua;
-        }
-    25% {
-        box-shadow: -3px 3px 5px aqua;
-        }
-    50% {
-        box-shadow: -3px -3px 5px aqua;
-        }
-    75% {
-        box-shadow: 3px -3px 5px aqua;
-        }
-    100% {
-        box-shadow: 3px 3px 5px aqua;
-        }
-    }
-
-            /* Адаптирую раздел для ПК + :hover individual box-shadow-animation */
-
-@media (min-width: 768px) {
+@media (min-width: 640px) {
     #types-of-work {
         flex-direction: row;
         justify-content: space-evenly;
@@ -314,12 +225,109 @@ header img:active {
     .type {
         width: 24rem;
     }
-    .type:hover {
-        transform: scale(1.1);
-    }
     #types-of-work h2 {
         font-size: clamp(0.9rem, 1.3vw, 1rem);
         padding: 0;
         cursor: pointer;
+    }
+    .type:hover, .more-info-button:hover {
+        color: var(--federal-blue);
+        background-color: var(--jordy-blue);
+        transform: scale(1.1);
+    }
+    .more-info-button a:hover {
+    color: var(--federal-blue);
+}
+}
+
+            /* Оформляю 6 однообразных страниц с описанием видов работ */
+
+.more-info-pages {
+    margin: 0 3vw;
+}
+
+.more-info-pages h1 {
+    text-align: center;
+    font-size: clamp(24px, 5vw, 36px);
+    margin-top: 1.5rem;
+}
+
+.more-info-pages h2 {
+    font-size: clamp(20px, 4vw, 28px);
+    margin-top: 1.5rem;
+}
+
+.more-info-pages h3 {
+    font-size: clamp(18px, 3vw, 22px);
+}
+
+
+.more-info-pages h4 {
+    font-size: clamp(16px, 2.5vw, 20px);
+}
+
+
+.more-info-pages p, ul, ol {
+    font-size: clamp(16px, 2vw, 18px);
+}
+
+.more-info-pages img {
+    border-radius: 1rem;
+    box-shadow: 2px 2px 6px var(--jordy-blue);
+}
+
+            /* Адаптирую 6 однообразных страниц с описанием видов работ для ПК */
+
+.for-big-screen-only {
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .for-small-screen-only {
+        display: none;
+    }
+    .for-big-screen-only {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-around;
+        grid-area: images;
+    }
+    .more-info-pages {
+        display: grid;
+        grid-template-columns: 1fr minmax(0, min(40%, 640px));
+        grid-auto-flow: dense;
+        align-items: start;
+        gap: 3rem;
+        grid-template-areas: "header1 header1"
+                             "header2 images" 
+                             "paragraph images"
+                             "header3 images"
+                             "list1 images"
+                             "list2 images";
+    }
+    .more-info-pages > h1 {
+        grid-area: header1;
+    }
+    .firsth2 {
+        grid-area: header2;
+    }
+    .more-info-pages > p {
+        grid-area: paragraph;
+    }
+    .secondh2 {
+        grid-area: header3;
+    }
+    .more-info-pages ol {
+        grid-area: list1;
+    }
+    .more-info-pages ul {
+        grid-area: list2;
+    }
+    .for-box-style {
+        border-radius: 0.5rem;
+        box-shadow: -3px 3px 3px var(--jordy-blue);
+        list-style-position: inside;
+        padding: 0.5rem 1rem;
     }
 }
