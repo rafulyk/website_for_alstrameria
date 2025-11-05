@@ -9,16 +9,27 @@
     --space-cadet: #202C59;
     --redwood: #a63d40ff;
     --aquamarine: #99edccff;
-    --header-height: 70px;
-    --header-height-for-pc: 80px;
-    --slides-height: 120px;
+    --header-height: 60px;
+    --header-height-forpc: 80px;
+    --slide-height: 100px;
+    --slide-height-forpc: 57px;
+    --headslide-height: calc(var(--header-height) + var(--slide-height));
+    --headslide-height-forpc: calc(var(--header-height-forpc) + var(--slide-height-forpc));
+    --type-height: 67px;
+    --type-height-forpc: 60px;
+    --type-width-forpc: 250px;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body {
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - var(--header-height));
-    font-family: 'Montserrat', sans-serif;    
+    font-family: 'Open Sans Condensed', 'Arial Narrow', 'Franklin Gothic Medium', sans-serif;   
     background-color: var(--federal-blue);
     color: white;
     padding-top: var(--header-height);
@@ -28,10 +39,15 @@ main {
     min-height: 540px;
 }
 
+#main-content {
+    padding-left: var(--type-width-forpc);
+    margin: 1rem;
+}
 
 .imp-text {
-    color: var(--desert-sand);
-    font-weight: 600;
+    display: inline-block;
+    color: var(--desert-sand) !important;
+    text-shadow: 0 0 5px var(--desert-sand) !important;
 }
 
 h1, h2, h3, h4 { font-weight: 300; }
@@ -53,7 +69,6 @@ h1 {
 .footer p {
     font-size: 0.8rem;
     font-weight: 100;
-    line-height: 0.5;
 }
 .footer a {
     text-decoration: none;
@@ -80,9 +95,9 @@ header {
 #home-logo, #alstrameria-logo, #whatsapp-logo {
     display: inline-block;
 }
-#home-logo { height: 25px; }
-#alstrameria-logo { height: 70px; }
-#phone-logo { height: 35px; }
+#home-logo { height: 27px; }
+#alstrameria-logo { height: var(--header-height); }
+#phone-logo { height: 31px; }
 
 @keyframes logo-animation {
     0% {
@@ -98,46 +113,49 @@ header img:active { transform: translate(0.2rem, 0.05rem) scale(1.05); }
 
             /* Адаптирую ШАПКУ для ПК */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     body {
-        padding-top: var(--header-height-for-pc);
-        min-height: calc(100vh - var(--header-height-for-pc));
+        padding-top: var(--header-height-forpc);
+        min-height: calc(100vh - var(--header-height-forpc));
     }
 
-    header { height: var(--header-height-for-pc) }
+    header { height: var(--header-height-forpc) }
     #home-logo { height: 40px; }
     #alstrameria-logo { height: 80px; }
-    #phone-logo { height: 50px; }
+    #phone-logo { height: 46px; }
     header img:hover { transform: translate(0.2rem, 0.05rem) scale(1.05); }
 }
 
 
             /* Оформляю слайды с 6 причинами выбрать нас */
-
+            
+.slide {
+    max-height: var(--slide-height);
+    width: 100%;
+}
 .slide p {
-    text-align: justify;
-    font-weight: 500;
-    line-height: 1.3rem;
-    padding: 0 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: clamp(21px, 6.5vw, 30px);
+    text-shadow: 0 0 3px;
 }
 
 
             /* Оформляю отображающиеся по очереди СЛАЙДЫ для СМАРТФОНОВ */
 
-@media (max-width: 767px) {
-    .slide, .slide-spacer { 
+@media (max-width: 1023px) {
+    .slide { 
         position: absolute;
         top: var(--header-height);
         opacity: 0;
     }
-
-    #advantage-slides { height: var(--slides-height); }
-    #advantage-slides .slide:nth-child(2) { animation: slides-opacity1 36s infinite; }
-    #advantage-slides .slide:nth-child(3) { animation: slides-opacity2 36s infinite; }
-    #advantage-slides .slide:nth-child(4) { animation: slides-opacity3 36s infinite; }
-    #advantage-slides .slide:nth-child(5) { animation: slides-opacity4 36s infinite; }
-    #advantage-slides .slide:nth-child(6) { animation: slides-opacity5 36s infinite; }
-    #advantage-slides .slide:nth-child(7) { animation: slides-opacity6 36s infinite; }
+ 
+    #advantage-slides .slide:nth-child(1) { animation: slides-opacity1 18s infinite; }
+    #advantage-slides .slide:nth-child(2) { animation: slides-opacity2 18s infinite; }
+    #advantage-slides .slide:nth-child(3) { animation: slides-opacity3 18s infinite; }
+    #advantage-slides .slide:nth-child(4) { animation: slides-opacity4 18s infinite; }
+    #advantage-slides .slide:nth-child(5) { animation: slides-opacity5 18s infinite; }
+    #advantage-slides .slide:nth-child(6) { animation: slides-opacity6 18s infinite; }
 
     @keyframes slides-opacity1 {
         0%, 2% { opacity: 0; }
@@ -190,25 +208,27 @@ header img:active { transform: translate(0.2rem, 0.05rem) scale(1.05); }
 
             /* Отображаю СЛАЙДЫ в виде бегущей строки для ПК */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     #advantage-slides {
         display: flex;
         overflow-x: hidden;
-        justify-content: space-evenly;
+        justify-content: space-between;
         gap: 8rem;
         z-index: -1;
     }
-    .slide, .slide-spacer {
-        flex: 0 0 50%;
+    .slide {
+        flex: 0 0 100%;
+        max-height: var(--slide-height-forpc);
         animation: running-slides 36s linear infinite;
     }
+    .slide p { font-size: clamp(29px, 2.4vw, 42px); }
     @keyframes running-slides {
         0% {
-        transform: translateX(calc(100%));    /* 8rem = flexbox gap */
+        transform: translateX(100%);
         background-size: 100% 300%;
         }
         100% {
-        transform: translateX(calc(-700% - 56rem));
+        transform: translateX(calc(-600% - 40rem));     /* 8rem = flexbox gap */
         background-size: 100% 100%;
         }
     }
@@ -224,39 +244,13 @@ header img:active { transform: translate(0.2rem, 0.05rem) scale(1.05); }
     align-items: center;
 }
 .type {
-    width: 85%;
+    width: 80%;
     display: grid;
     grid-template-rows: auto 0fr;
-    text-align: center; 
-    animation: type-shadow 0.7s linear infinite alternate;
-}
-.type, .more-info-button {
+    text-align: center;
     box-shadow: 3px 3px 5px -3px var(--jordy-blue);
-    border-radius: 0.3rem;
-    transition: 0.4s;
+    padding-bottom: 5px;
 }
-.more-info-button {
-    padding: 0.5rem 0;
-    margin-bottom: 1rem;
-    width: 50%;
-    margin: 0 auto 1rem;
-    background-color: var(--space-cadet);
-}
-.more-info-button a {
-    text-decoration: none;
-    color: white;
-}
-
-.type p { text-align: justify; }
-
-.type:active, .more-info-button:active, .more-info-button a:active {
-    color: var(--space-cadet);
-    background-color: var(--jordy-blue);
-}
-
-
-            /* Настраиваю логику работы "АККОРДЕОНА" */
-
 .accordion-toggle { display: none; }
 
 .accordion-content {
@@ -270,47 +264,67 @@ header img:active { transform: translate(0.2rem, 0.05rem) scale(1.05); }
     background-color: var(--jordy-blue);
     z-index: 1;
 }
+.type, .more-info-button {
+    border-radius: 0.3rem;
+    transition: 0.4s;
+}
+.more-info-button {
+    padding: 0.5rem 0;
+    margin: 0.5rem auto;
+    width: 50%;
+    background-color: var(--space-cadet);
+}
+.more-info-button a {
+    text-decoration: none;
+    color: white;
+}
+
+.type h2 {
+    font-size: clamp(18px, 5.5vw, 25px);
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+.type p { text-align: justify; }
+
+.type:active, .more-info-button:active, .more-info-button a:active {
+    color: var(--space-cadet);
+    background-color: var(--jordy-blue);
+}
 
 
             /* Адаптирую раздел с ВИДАМИ РАБОТ для СМАРТФОНОВ */
 
-@media (max-width: 767px) {
-    .type h2 { font-size: clamp(17px, 4vw, 18px); }
+@media (max-width: 1023px) {
     .type { position: absolute; }
-    .electricity { top: 190px; }
-    .automation { top: 260px; }
-    .network { top: 330px; }
-    .alarm { top: 400px; }
-    .water { top: 470px; }
-    .ventilation { top: 540px; }
+    .electricity { top: var(--headslide-height); }
+    .automation { top: calc(var(--headslide-height) + var(--type-height)); }
+    .network { top: calc(var(--headslide-height) + 2*var(--type-height)); }
+    .alarm { top: calc(var(--headslide-height) + 3*var(--type-height)); }
+    .water { top: calc(var(--headslide-height) + 4*var(--type-height)); }
+    .ventilation { top: calc(var(--headslide-height) + 5*var(--type-height)); }
 }
 
 
             /* Адаптирую раздел с ВИДАМИ РАБОТ для ПК */
 
-@media (min-width: 768px) {
-    #types-of-work {
-        justify-content: space-evenly;
-        align-items: flex-start;
-        flex-wrap: wrap;
-    }
+@media (min-width: 1024px) {
     .type {
         position: fixed;
-        width: 16em;
+        width: var(--type-width-forpc);
+        left: 0;
     }
-    #types-of-work h2 {
-        font-size: clamp(0.9rem, 1.3vw, 1rem);
-        padding: 0;
+    .type h2 {
+        font-size: clamp(20px, 1.9vw, 22px);
         cursor: pointer;
     }
     .type:hover { transform: scale(1.05); }
     .more-info-button:hover { transform: scale(0.95); }
-    .electricity { top: 190px; }
-    .automation { top: 260px; }
-    .network { top: 330px; }
-    .alarm { top: 400px; }
-    .water { top: 470px; }
-    .ventilation { top: 540px; }
+    .electricity { top: var(--headslide-height-forpc); }
+    .automation { top: calc(var(--headslide-height-forpc) + var(--type-height-forpc)); }
+    .network { top: calc(var(--headslide-height-forpc) + 2*var(--type-height-forpc)); }
+    .alarm { top: calc(var(--headslide-height-forpc) + 3*var(--type-height-forpc)); }
+    .water { top: calc(var(--headslide-height-forpc) + 4*var(--type-height-forpc)); }
+    .ventilation { top: calc(var(--headslide-height-forpc) + 5*var(--type-height-forpc)); }
 }
 
 
@@ -386,9 +400,124 @@ header img:active { transform: translate(0.2rem, 0.05rem) scale(1.05); }
     }
 }
 
-.test {
-    width: 300px;
-    height: 700px;
-    background-color: rgb(63, 36, 0);
-    z-index: -1;
+
+/* ________________СЛЕДУЮЩИЙ__________ЭТАП_____________________________________ */
+
+            /* Эксперимент: оформление отдельных элементов ИИ,
+            отредакториванные и очищенные от лишнего */
+/* Строгий угловатый стиль для формы */
+#feedback {
+    position: fixed;
+    top: calc(var(--headslide-height-forpc) + 6*var(--type-height-forpc));
+    left: 0;
+    margin-top: 2rem;
+}
+
+.feedback-container {
+    width: 250px;
+    background: var(--federal-blue);
+    padding: 1rem;
+    border-radius: 0.3rem;
+    box-shadow: 3px 3px 5px -3px var(--jordy-blue);
+    box-sizing: border-box;
+}
+
+#feedback-heading {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    color: var(--desert-sand);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.3rem;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.input-group label {
+    position: absolute;
+    top: -0.6rem;
+    left: 0.5rem;
+    color: var(--jordy-blue);
+    font-size: 0.7rem;
+    background: var(--federal-blue);
+    padding: 0 0.5rem;
+    font-weight: 500;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--desert-sand);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 2px 2px 0 var(--desert-sand);
+}
+
+.submit-btn {
+    padding: 0.8rem;
+    background: var(--jordy-blue);
+    border-radius: 0.3rem;
+    color: var(--federal-blue);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 3px 3px 0 var(--space-cadet);
+    position: relative;
+}
+
+.submit-btn:hover {
+    background: var(--desert-sand);
+    border-color: var(--desert-sand);
+    box-shadow: 4px 4px 0 var(--space-cadet);
+    transform: translate(-1px, -1px);
+}
+
+.submit-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--space-cadet);
+}
+
+.loading-dots::before,
+.loading-dots::after {
+    border-radius: 0;
+    background: var(--federal-blue); /* ✅ Точки основного цвета */
+}
+
+@media (max-width: 1023px) {
+    #feedback {
+        padding: 1.5rem 1rem;
+        width: 80%;
+    }
+    
+    .feedback-container {
+        width: 100%;
+        max-width: 280px;
+    }
 }
