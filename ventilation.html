@@ -3,18 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Инженерный Центр Альстрамерия - профессиональные электромонтажные работы, автоматизация, СКС, водоснабжение, вентиляция">
     <title>Инженерный Центр Альстрамерия</title>
     <link rel="stylesheet" href="css/sanitize.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans+Condensed:wght@300;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans+Condensed:wght@300;700&display=swap">
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="img/logo.png" alt="Логотип компании Альстрамерия"></a>
+        <a href="index.html"><img id="home-logo" src="img/logos/home.png" alt="Лого домика на главную страницу"></a>
+        <a href="index.html"><img id="alstrameria-logo" src="img/logos/logo.png" alt="Логотип компании Альстрамерия"></a>
+        <a href="tel:+79686648753"><img id="phone-logo" src="img/logos/phone.png" alt="Лого телефона"></a>
     </header>
 <main>
-    <h1>ВЕНТИЛЯЦИЯ И КОНДИЦИОНИРОВАНИЕ</h1>
+<section id="advantage-slides" aria-label="Раздел из 6 причин выбрать Альстамерию">
+    <div class="slide">    
+        <p><span class="imp-text">120+</span> квалифицированных специалистов с оборудованием</p>
+    </div>
+    <div class="slide">
+        <p><span class="imp-text">Собственные</span> цеха: сборка щитов и заготовка кабелей</p>
+    </div>
+    <div class="slide">
+        <p><span class="imp-text">Профессионалы:</span> творческие и ответственные сотрудники</p>
+    </div>
+    <div class="slide">
+        <p><span class="imp-text">Сертифицированные</span> специалисты с учеными степенями</p>
+    </div>
+    <div class="slide">
+        <p>Все необходимые <span class="imp-text">лицензии</span> и <span class="imp-text">сертификаты</span> работ</p>
+    </div>
+    <div class="slide">
+        <p><span class="imp-text">25+ лет</span> работы, <span class="imp-text">сотни</span> довольных клиентов</p>
+    </div>
+</section>
+<nav id="nav-bar" class="nav-bar no-nav-bar" aria-label="Навигация по сайту">
+    <input type="checkbox" id="type-header1" class="accordion-toggle">
+    <div class="nav-item">
+        <label for="type-header1" title="Нажмите чтобы развернуть секцию">
+            <img class="logo1" src="img/logos/electricity1.png"><h2 id="heading1">Электроснабжение<br>освещение</h2><img class="logo2" src="img/logos/electricity2.png">
+        </label>
+        <div class="accordion-content" aria-labelledby="heading1">
+            <p>Полный комплекс электромонтажных работ: от проектирования до пусконаладки. Монтаж распределительных щитов, прокладка кабелей, установка розеток и выключателей. Современные системы освещения с энергосберегающими технологиями. Гарантия качества и безопасности.</p>
+            <a href="electricity.html" class="nav-button">Узнать больше</a>
+        </div>
+    </div>
+    <input type="checkbox" id="type-header2" class="accordion-toggle">
+    <div class="nav-item">
+        <label for="type-header2" title="Нажмите чтобы развернуть секцию">
+            <img class="logo1" src="img/logos/automotion1.png"><h2 id="heading2">Автоматизация<br>комплексная</h2><img class="logo2" src="img/logos/automotion2.png">
+        </label>
+        <div class="accordion-content" aria-labelledby="heading2">
+            <p>Автоматизация инженерных систем зданий: умный дом, контроль доступа, диспетчеризация. Интеграция оборудования в единую систему управления. Повышение энергоэффективности и комфорта. Современные протоколы связи и надежные компоненты.</p>
+            <a href="automation.html" class="nav-button">Узнать больше</a>
+        </div>
+    </div>
+    <input type="checkbox" id="type-header3" class="accordion-toggle">
+    <div class="nav-item">
+        <label for="type-header3" title="Нажмите чтобы развернуть секцию">
+            <img class="logo1" src="img/logos/network1.png"><h2 id="heading3">Структурированная<br>кабельная сеть</h2><img class="logo2" src="img/logos/network2.png">
+        </label>
+        <div class="accordion-content" aria-labelledby="heading3">
+            <p>Проектирование и монтаж СКС для офисов, бизнес-центров, производств. Локальные сети, телефония, видеонаблюдение. Используем качественные материалы и соблюдаем стандарты. Обеспечиваем стабильную работу IT-инфраструктуры.</p>
+            <a href="network.html" class="nav-button">Узнать больше</a>
+        </div>
+    </div>
+    <input type="checkbox" id="type-header4" class="accordion-toggle">
+    <div class="nav-item">
+        <label for="type-header4" title="Нажмите чтобы развернуть секцию">
+            <img class="logo1" src="img/logos/alarm1.png"><h2 id="heading4">Сигнализации<br>пожарная и охранная</h2><img class="logo2" src="img/logos/alarm2.png">
+        </label>
+        <div class="accordion-content" aria-labelledby="heading4">
+            <p>Монтаж систем безопасности: пожарная сигнализация, оповещение, СОУЭ, охранные системы. Датчики, контрольные панели, мониторинг. Соответствие нормам МЧС. Круглосуточная защита объектов любой сложности.</p>
+            <a href="alarm.html" class="nav-button">Узнать больше</a>
+        </div>
+    </div>
+    <input type="checkbox" id="type-header5" class="accordion-toggle">
+    <div class="nav-item">
+        <label for="type-header5" title="Нажмите чтобы развернуть секцию">
+            <img class="logo1" src="img/logos/water1.png"><h2 id="heading5">Водоснабжение<br>канализация</h2><img class="logo2" src="img/logos/water2.png">
+        </label>
+        <div class="accordion-content" aria-labelledby="heading5">
+            <p>Внутренние и внешние сети водоснабжения и канализации. Монтаж трубопроводов, сантехнического оборудования, насосных станций. Системы фильтрации и очистки воды. Качественные материалы и профессиональный монтаж.</p>
+            <a href="water.html" class="nav-button">Узнать больше</a>
+        </div>
+    </div>
+    <input type="checkbox" id="type-header6" class="accordion-toggle">
+    <div class="nav-item">
+        <label for="type-header6" title="Нажмите чтобы развернуть секцию">
+            <img class="logo1" src="img/logos/ventilation1.png"><h2 id="heading6">вВентиляция<br>кондиционирование</h2><img class="logo2" src="img/logos/ventilation2.png">
+        </label>
+        <div class="accordion-content" aria-labelledby="heading6">
+            <p>Системы вентиляции и кондиционирования для квартир, офисов, производств. Приточно-вытяжные установки, чиллеры, фанкойлы. Проектирование и монтаж под ключ. Обеспечиваем оптимальный микроклимат помещений.</p>
+            <a href="ventilation.html" class="nav-button">Узнать больше</a>
+        </div>
+    </div>
+    <input type="checkbox" id="type-header7" class="accordion-toggle">
+    <div class="nav-item">
+        <label for="type-header7" title="Нажмите чтобы развернуть секцию">
+            <img class="logo1" src="img/logos/feedback1.png"><h2 id="heading7">Обратная связь<br>оставить заявку</h2><img class="logo2" src="img/logos/feedback2.png">
+        </label>
+        <div class="accordion-content" aria-labelledby="heading7">
+            <form class="feedback-form" action="#cooming -soon" method="POST">
+                <div class="form-group">
+                    <input type="text" id="feedback-name" name="name" placeholder="Garry Potter" required autocomplete="name">
+                    <label for="feedback-name">Ваше имя</label>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="feedback-phone" name="phone" placeholder="+7(904)444-44-44" required autocomplete="tel">
+                    <label for="feedback-phone">Телефон</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="feedback-message" name="message" rows="3" placeholder=" "></textarea>
+                    <label for="feedback-message">Сообщение (необязательно)</label>
+                </div>
+                <button type="submit" class="nav-button">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+    <div class="nav-item">
+        <a href="licenses.html"><img class="logo1" src="img/logos/licenses1.png">Лицензии<br>и сертификаты<img class="logo2" src="img/logos/licenses2.png"></a>
+    </div>
+    <div class="nav-item">
+        <a href="contacts.html"><img class="logo1" src="img/logos/contacts1.png"> Наши<br>контакты<img class="logo2" src="img/logos/contacts2.png"></a>
+    </div>
+</nav>
+</section>
+
+<section id="main-content" class="more-info-pages">
+    <h1>❄️ ВЕНТИЛЯЦИЯ И КОНДИЦИОНИРОВАНИЕ</h1>
+    <img src="img/works/vent.png" class="for-small-screen-only" alt="Системы вентиляции и кондиционирования">
+    <h2 class="firsth2">📊 Объем работ:</h2>
+    <p>Полный комплекс работ по проектированию, монтажу и обслуживанию систем вентиляции и кондиционирования. Создаем комфортный микроклимат в помещениях любого назначения с соблюдением всех санитарных норм и требований к воздухообмену.</p>
+    <img src="img/works/vent3.jpg" class="for-small-screen-only" alt="Монтаж вентиляционных систем">
+    <h2 class="secondh2">🛠️ Основные подразделы:</h2>
+    <ol>
+        <li><h3>Системы вентиляции</h3>
+            <ul class="for-box-style">
+                <li>Монтаж приточно-вытяжных установок</li>
+                <li>Устройство вентиляционных каналов и воздуховодов</li>
+                <li>Установка вентиляторов и вытяжных зонтов</li>
+                <li>Монтаж систем дымоудаления и подпора воздуха</li>
+                <li>Устройство естественной и механической вентиляции</li>
+            </ul>
+        </li>
+        <li><h3>Системы кондиционирования</h3>
+            <ul>
+                <li><h4>Бытовые системы:</h4>
+                    <ul class="for-box-style">
+                        <li>Установка сплит-систем и мульти-сплит систем</li>
+                        <li>Монтаж канальных и кассетных кондиционеров</li>
+                        <li>Установка напольных и колонных климатических систем</li>
+                        <li>Мобильные системы кондиционирования</li>
+                    </ul>
+                </li>
+                <li><h4>Промышленные системы:</h4>
+                    <ul class="for-box-style">
+                        <li>Монтаж систем чиллер-фанкойл</li>
+                        <li>Установка центральных кондиционеров</li>
+                        <li>Системы прецизионного кондиционирования</li>
+                        <li>Крышные кондиционеры (ROOFTOP)</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><h3>Специализированные системы</h3>
+            <ul class="for-box-style">
+                <li>Системы очистки и обеззараживания воздуха</li>
+                <li>Увлажнители и осушители воздуха</li>
+                <li>Тепловые завесы и воздушные отопители</li>
+                <li>Системы рекуперации тепла</li>
+                <li>Автоматика управления климатическими системами</li>
+            </ul>
+        </li>
+        <li><h3>Современные технологии</h3>
+            <ul class="for-box-style">
+                <li>VRF и VRV системы переменного расхода хладагента</li>
+                <li>Системы с свободным охлаждением (free cooling)</li>
+                <li>Энергоэффективные решения с рекуперацией</li>
+                <li>Интеграция с системами умного дома и БМС</li>
+            </ul>
+        </li>
+    </ol>
+    <img src="img/works/vent1.jpg" class="for-small-screen-only" alt="Климатическое оборудование">
+    <ul>
+        <li><h3>⚡ Дополнительные услуги:</h3>
+            <ul class="for-box-style">
+                <li>Теплотехнический расчет и проектирование систем</li>
+                <li>Пуско-наладочные работы и балансировка систем</li>
+                <li>Сервисное обслуживание и ремонт оборудования</li>
+                <li>Заправка хладагентом и диагностика систем</li>
+            </ul>
+        </li>
+        <li><h3>🏢 Объекты:</h3>
+            <ul class="for-box-style">
+                <li>Квартиры и частные дома</li>
+                <li>Офисные и административные здания</li>
+                <li>Торговые центры и магазины</li>
+                <li>Производственные помещения и склады</li>
+                <li>Медицинские учреждения и лаборатории</li>
+                <li>Гостиницы и рестораны</li>
+            </ul>
+        </li>
+        <li><h3>✅ Наши преимущества:</h3>
+            <ul class="for-box-style">
+                <li>Соблюдение СНиП и СанПиН по микроклимату</li>
+                <li>Оборудование ведущих мировых производителей</li>
+                <li>Сертифицированные монтажники и инженеры</li>
+                <li>Гарантия на оборудование и выполненные работы</li>
+                <li>Круглосуточная техническая поддержка</li>
+            </ul>
+        </li>
+    </ul>
+    <img src="img/works/vent2.jpg" class="for-small-screen-only" alt="Вентиляционное оборудование">
+    <div class="for-big-screen-only">
+        <img src="img/works/vent.png" alt="Системы вентиляции и кондиционирования">
+        <img src="img/works/vent1.jpg" alt="Климатическое оборудование">
+        <img src="img/works/vent2.jpg" alt="Вентиляционное оборудование">
+        <img src="img/works/vent3.jpg" alt="Монтаж вентиляционных систем">
+    </div>
+</section>
+
 </main>
+<footer>
+    <div class="footer">
+        <p>Телефон:  <a href="tel:+79686648753">+7 (968) 664-87-53</a> | Email: <a href="mailto:info@alstrameria.ru">info@alstrameria.ru</a></p><p>© 1999-2025 Инженерный Центр Альстрамерия</p>
+</footer>
 </body>
 </html>

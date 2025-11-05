@@ -3,41 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Инженерный Центр Альстрамерия - профессиональные электромонтажные работы, автоматизация, СКС, водоснабжение, вентиляция">
     <title>Инженерный Центр Альстрамерия</title>
     <link rel="stylesheet" href="css/sanitize.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans+Condensed:wght@300;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans+Condensed:wght@300;700&display=swap">
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="img/logo.png" alt="Логотип компании Альстрамерия"></a>
+        <a href="index.html"><img id="home-logo" src="img/logos/home.png" alt="Лого домика на главную страницу"></a>
+        <a href="index.html"><img id="alstrameria-logo" src="img/logos/logo.png" alt="Логотип компании Альстрамерия"></a>
+        <a href="tel:+79686648753"><img id="phone-logo" src="img/logos/phone.png" alt="Лого телефона"></a>
     </header>
 <main>
-
 <section id="advantage-slides" aria-label="Раздел из 6 причин выбрать Альстамерию">
-    <div class="slide-spacer" aria-hidden="true"></div>
-    <div class="slide">
-        <p><span class="imp-text">Более 120</span>  человек <span class="imp-text">квалифицированного</span> персонала, оснащенного необходимым оборудованием (штатный и привлекаемый по трудовым соглашениям)</p>
+    <div class="slide">    
+        <p><span class="imp-text">120+</span> квалифицированных специалистов с оборудованием</p>
     </div>
     <div class="slide">
-        <p>Изготовление и сборка оборудования, щитов, трубных заготовок производится на <span class="imp-text">собственных</span> производственных <span class="imp-text">площадях</span>, а так же мерная заготовка проводов и кабелей</p>
+        <p><span class="imp-text">Собственные</span> цеха: сборка щитов и заготовка кабелей</p>
     </div>
     <div class="slide">
-        <p><span class="imp-text">В компании</span> «Альстрамерия» работают <span class="imp-text">профессионалы</span> своего дела, команда компании – творческие, ответственные люди, которые любят свою работу</p>
+        <p><span class="imp-text">Профессионалы:</span> творческие и ответственные сотрудники</p>
     </div>
     <div class="slide">
-        <p>Специалисты нашей компании проходят сертификацию компаний-производителей высокотехнологичного оборудования и ПО, <span class="imp-text" style="padding-left: 20px">многие имеют ученые степени</span></p>
+        <p><span class="imp-text">Сертифицированные</span> специалисты с учеными степенями</p>
     </div>
     <div class="slide">
-        <p>Наша компания имеет <span class="imp-text">лицензии</span> и <span class="imp-text">сертификаты</span> на осуществление деятельности, сертификаты соответствия, свидетельства о допусках к определенным видам работ</p>
+        <p>Все необходимые <span class="imp-text">лицензии</span> и <span class="imp-text">сертификаты</span> работ</p>
     </div>
     <div class="slide">
-        <p>За время работы нашего инженерного центра, которое составляет более <span class="imp-text">четверти века</span>, остались <span class="imp-text">сотни довольных клиентов</span>, <span style="padding-left: 20px">рекомендующих нас</span></p>
+        <p><span class="imp-text">25+ лет</span> работы, <span class="imp-text">сотни</span> довольных клиентов</p>
     </div>
-    <div class="slide-spacer" aria-hidden="true"></div>
+</section>
+<nav id="nav-bar" class="nav-bar no-nav-bar" aria-label="Навигация по сайту">
+    <input type="checkbox" id="type-header1" class="accordion-toggle">
+    <div class="nav-item">
+        <label for="type-header1" title="Нажмите чтобы развернуть секцию">
+            <img class="logo1" src="img/logos/electricity1.png"><h2 id="heading1">Электроснабжение<br>освещение</h2><img class="logo2" src="img/logos/electricity2.png">
+        </label>
+        <div class="accordion-content" aria-labelledby="heading1">
+            <p>Полный комплекс электромонтажных работ: от проектирования до пусконаладки. Монтаж распределительных щитов, прокладка кабелей, установка розеток и выключателей. Современные системы освещения с энергосберегающими технологиями. Гарантия качества и безопасности.</p>
+            <a href="electricity.html" class="nav-button">Узнать больше</a>
+        </div>
+    </div>
+    <input type="checkbox" id="type-header2" class="accordion-toggle">
+    <div class="nav-item">
+        <label for="type-header2" title="Нажмите чтобы развернуть секцию">
+            <img class="logo1" src="img/logos/automotion1.png"><h2 id="heading2">Автоматизация<br>комплексная</h2><img class="logo2" src="img/logos/automotion2.png">
+        </label>
+        <div class="accordion-content" aria-labelledby="heading2">
+            <p>Автоматизация инженерных систем зданий: умный дом, контроль доступа, диспетчеризация. Интеграция оборудования в единую систему управления. Повышение энергоэффективности и комфорта. Современные протоколы связи и надежные компоненты.</p>
+            <a href="automation.html" class="nav-button">Узнать больше</a>
+        </div>
+    </div>
+    <input type="checkbox" id="type-header3" class="accordion-toggle">
+    <div class="nav-item">
+        <label for="type-header3" title="Нажмите чтобы развернуть секцию">
+            <img class="logo1" src="img/logos/network1.png"><h2 id="heading3">Структурированная<br>кабельная сеть</h2><img class="logo2" src="img/logos/network2.png">
+        </label>
+        <div class="accordion-content" aria-labelledby="heading3">
+            <p>Проектирование и монтаж СКС для офисов, бизнес-центров, производств. Локальные сети, телефония, видеонаблюдение. Используем качественные материалы и соблюдаем стандарты. Обеспечиваем стабильную работу IT-инфраструктуры.</p>
+            <a href="network.html" class="nav-button">Узнать больше</a>
+        </div>
+    </div>
+    <input type="checkbox" id="type-header4" class="accordion-toggle">
+    <div class="nav-item">
+        <label for="type-header4" title="Нажмите чтобы развернуть секцию">
+            <img class="logo1" src="img/logos/alarm1.png"><h2 id="heading4">Сигнализации<br>пожарная и охранная</h2><img class="logo2" src="img/logos/alarm2.png">
+        </label>
+        <div class="accordion-content" aria-labelledby="heading4">
+            <p>Монтаж систем безопасности: пожарная сигнализация, оповещение, СОУЭ, охранные системы. Датчики, контрольные панели, мониторинг. Соответствие нормам МЧС. Круглосуточная защита объектов любой сложности.</p>
+            <a href="alarm.html" class="nav-button">Узнать больше</a>
+        </div>
+    </div>
+    <input type="checkbox" id="type-header5" class="accordion-toggle">
+    <div class="nav-item">
+        <label for="type-header5" title="Нажмите чтобы развернуть секцию">
+            <img class="logo1" src="img/logos/water1.png"><h2 id="heading5">Водоснабжение<br>канализация</h2><img class="logo2" src="img/logos/water2.png">
+        </label>
+        <div class="accordion-content" aria-labelledby="heading5">
+            <p>Внутренние и внешние сети водоснабжения и канализации. Монтаж трубопроводов, сантехнического оборудования, насосных станций. Системы фильтрации и очистки воды. Качественные материалы и профессиональный монтаж.</p>
+            <a href="water.html" class="nav-button">Узнать больше</a>
+        </div>
+    </div>
+    <input type="checkbox" id="type-header6" class="accordion-toggle">
+    <div class="nav-item">
+        <label for="type-header6" title="Нажмите чтобы развернуть секцию">
+            <img class="logo1" src="img/logos/ventilation1.png"><h2 id="heading6">вВентиляция<br>кондиционирование</h2><img class="logo2" src="img/logos/ventilation2.png">
+        </label>
+        <div class="accordion-content" aria-labelledby="heading6">
+            <p>Системы вентиляции и кондиционирования для квартир, офисов, производств. Приточно-вытяжные установки, чиллеры, фанкойлы. Проектирование и монтаж под ключ. Обеспечиваем оптимальный микроклимат помещений.</p>
+            <a href="ventilation.html" class="nav-button">Узнать больше</a>
+        </div>
+    </div>
+    <input type="checkbox" id="type-header7" class="accordion-toggle">
+    <div class="nav-item">
+        <label for="type-header7" title="Нажмите чтобы развернуть секцию">
+            <img class="logo1" src="img/logos/feedback1.png"><h2 id="heading7">Обратная связь<br>оставить заявку</h2><img class="logo2" src="img/logos/feedback2.png">
+        </label>
+        <div class="accordion-content" aria-labelledby="heading7">
+            <form class="feedback-form" action="#cooming -soon" method="POST">
+                <div class="form-group">
+                    <input type="text" id="feedback-name" name="name" placeholder="Garry Potter" required autocomplete="name">
+                    <label for="feedback-name">Ваше имя</label>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="feedback-phone" name="phone" placeholder="+7(904)444-44-44" required autocomplete="tel">
+                    <label for="feedback-phone">Телефон</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="feedback-message" name="message" rows="3" placeholder=" "></textarea>
+                    <label for="feedback-message">Сообщение (необязательно)</label>
+                </div>
+                <button type="submit" class="nav-button">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+    <div class="nav-item">
+        <a href="licenses.html"><img class="logo1" src="img/logos/licenses1.png">Лицензии<br>и сертификаты<img class="logo2" src="img/logos/licenses2.png"></a>
+    </div>
+    <div class="nav-item">
+        <a href="contacts.html"><img class="logo1" src="img/logos/contacts1.png"> Наши<br>контакты<img class="logo2" src="img/logos/contacts2.png"></a>
+    </div>
+</nav>
+</section>
+
+<section id="main-content" class="more-info-pages">
+    <h1>📢 ПОЖАРНАЯ И ОХРАННАЯ СИГНАЛИЗАЦИИ</h1>
+    <img src="img/works/alarm.png" class="for-small-screen-only" alt="Системы сигнализации">
+    <h2 class="firsth2">📊 Объем работ:</h2>
+    <p>Полный комплекс работ по проектированию, монтажу и обслуживанию систем пожарной и охранной сигнализации. Обеспечиваем круглосуточную защиту объектов любой сложности с соблюдением всех норм и требований МЧС России.</p>
+    <img src="img/works/alarm3.jpg" class="for-small-screen-only" alt="Монтаж сигнализации">
+    <h2 class="secondh2">🛠️ Основные подразделы:</h2>
+    <ol>
+        <li><h3>Пожарная сигнализация</h3>
+            <ul class="for-box-style">
+                <li>Установка дымовых и тепловых извещателей</li>
+                <li>Монтаж ручных пожарных извещателей</li>
+                <li>Установка приемно-контрольных приборов</li>
+                <li>Монтаж систем оповещения и управления эвакуацией (СОУЭ)</li>
+                <li>Интеграция с системами дымоудаления и пожаротушения</li>
+            </ul>
+        </li>
+        <li><h3>Охранная сигнализация</h3>
+            <ul>
+                <li><h4>Периметральная охрана:</h4>
+                    <ul class="for-box-style">
+                        <li>Установка инфракрасных барьеров</li>
+                        <li>Монтаж вибрационных и радиоволновых систем</li>
+                        <li>Установка емкостных и емкостно-емкостных извещателей</li>
+                        <li>Системы обнаружения пересечения периметра</li>
+                    </ul>
+                </li>
+                <li><h4>Внутренняя охрана:</h4>
+                    <ul class="for-box-style">
+                        <li>Установка объемных датчиков движения</li>
+                        <li>Монтаж акустических и вибрационных датчиков</li>
+                        <li>Установка магнитоконтактных извещателей</li>
+                        <li>Системы контроля доступа в помещения</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><h3>Специализированные системы</h3>
+            <ul class="for-box-style">
+                <li>Системы тревожной сигнализации (тревожные кнопки)</li>
+                <li>Системы контроля и управления доступом (СКУД)</li>
+                <li>Системы видеонаблюдения и видеоаналитики</li>
+                <li>Системы мониторинга и диспетчеризации</li>
+                <li>Интеграция с системами умного дома</li>
+            </ul>
+        </li>
+        <li><h3>Мониторинг и управление</h3>
+            <ul class="for-box-style">
+                <li>Организация пультовой охраны</li>
+                <li>Удаленный мониторинг и управление системами</li>
+                <li>Мобильные приложения для оповещения</li>
+                <li>Резервирование каналов связи</li>
+            </ul>
+        </li>
+    </ol>
+    <img src="img/works/alarm1.jpg" class="for-small-screen-only" alt="Оборудование сигнализации">
+    <ul>
+        <li><h3>⚡ Дополнительные услуги:</h3>
+            <ul class="for-box-style">
+                <li>Разработка проектной документации с согласованием в МЧС</li>
+                <li>Пуско-наладочные работы и настройка оборудования</li>
+                <li>Техническое обслуживание и ремонт систем</li>
+                <li>Обучение персонала работе с системами безопасности</li>
+            </ul>
+        </li>
+        <li><h3>🏢 Объекты:</h3>
+            <ul class="for-box-style">
+                <li>Жилые квартиры и частные дома</li>
+                <li>Офисные и административные здания</li>
+                <li>Торговые центры и магазины</li>
+                <li>Производственные предприятия и склады</li>
+                <li>Банки и финансовые учреждения</li>
+                <li>Образовательные и медицинские организации</li>
+            </ul>
+        </li>
+        <li><h3>✅ Наши преимущества:</h3>
+            <ul class="for-box-style">
+                <li>Полное соответствие нормам ФЗ-123 и СП 5.13130</li>
+                <li>Сертифицированное оборудование ведущих производителей</li>
+                <li>Круглосуточный мониторинг и техническая поддержка</li>
+                <li>Гарантия на оборудование и выполненные работы</li>
+                <li>Оперативное реагирование на тревожные сигналы</li>
+            </ul>
+        </li>
+    </ul>
+    <img src="img/works/alarm2.jpg" class="for-small-screen-only" alt="Пульт управления">
+    <div class="for-big-screen-only">
+        <img src="img/works/alarm.png" alt="Системы сигнализации">
+        <img src="img/works/alarm1.jpg" alt="Оборудование сигнализации">
+        <img src="img/works/alarm2.jpg" alt="Пульт управления">
+        <img src="img/works/alarm3.jpg" alt="Монтаж сигнализации">
+    </div>
 </section>
 
 </main>
+<footer>
+    <div class="footer">
+        <p>Телефон:  <a href="tel:+79686648753">+7 (968) 664-87-53</a> | Email: <a href="mailto:info@alstrameria.ru">info@alstrameria.ru</a></p><p>© 1999-2025 Инженерный Центр Альстрамерия</p>
+</footer>
 </body>
 </html>
