@@ -16,11 +16,16 @@ This is my **first complete website** created while learning HTML and CSS fundam
 - CSS animations and gradients
 - Git version control
 
+**This website became my learning playground** where I mastered HTML and CSS through practical implementation. Now I'm starting to learn JavaScript and have already added my first two scripts (AI-assisted) to enhance functionality.
+
+I'm proud of creating a solid foundation that I'll continue to experiment with throughout my learning journey. Who knows - maybe by the end I'll even sell it to the actual company the site is dedicated to! 🚀
+
 ## 🛠 Built With
 
 - **HTML5** - Semantic markup
 - **CSS3** - Flexbox, CSS Variables, Animations
-- **Git & GitHub** - My first experience with version control
+- **JavaScript** - My first steps (AI-assisted implementations)
+- **Git & GitHub** - Version control mastery
 
 ## ✨ Features I Implemented
 
@@ -29,3 +34,14 @@ This is my **first complete website** created while learning HTML and CSS fundam
 - 🔄 **Animated Header** with gradient background
 - 🖱️ **Interactive Carousel** using CSS scroll snap
 - ♿ **Basic Accessibility** with ARIA labels
+- ⚡ **JavaScript Enhancements** - Beginning my JS journey
+
+## 🌱 Learning Journey
+
+- ✅ **Mastered**: HTML5, CSS3, Responsive Design, Git
+- 🎯 **Currently Learning**: JavaScript fundamentals
+- 🔮 **Future Plans**: React, Backend development, Advanced animations
+
+---
+
+*This project represents the start of my web development career - from zero to deployed website!* 💫
